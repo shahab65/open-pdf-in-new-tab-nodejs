@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 
 app.get("/pdf", (req, res) => {
   // Define the path to the PDF file
-  const filePath = path.join(__dirname, "test.pdf"); // Replace with your actual PDF file name
+  const filePath = path.join(__dirname, "test.pdf");
 
   // Check if the file exists
   fs.access(filePath, fs.constants.F_OK, (err) => {
@@ -25,7 +25,7 @@ app.get("/pdf", (req, res) => {
       // File exists, set appropriate headers and download it
       // res.setHeader("Content-Type", "application/pdf");
       res.setHeader("Content-Type", "application/octet-stream");
-      //   res.setHeader("Content-Disposition", 'attachment; filename="test.pdf"'); // Replace with actual filename
+      //   res.setHeader("Content-Disposition", 'attachment; filename="test.pdf"');
       res.sendFile(filePath);
     }
   });
